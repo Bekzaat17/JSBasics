@@ -1,0 +1,50 @@
+<!Doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> jQuery exercises </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		function valid() {
+			if ($("#name").val() == ""){
+				return $("#message").html("<span style = 'color:red'>Write your name please!</span><br />");
+			}
+			else if ($("#city").val() == ""){
+				return $("#message").html("<span style = 'color:red'>Write your city please!</span><br />");
+			}
+			else if (!$("input[name=sex]:checked").val())
+			{
+				return $("#message").html("<span style = 'color:red'>Select your sex please!</span><br />");
+			}
+			else
+			{
+				if ($("input[name=sex]:checked").val() === "Male")
+				{
+					alert("Wellcome dear Mr. " + $("#name").val() + "!\nOur agent in " + $("#city").val() +  " will contact you immediately!");
+				}
+				else
+				{
+					alert("Wellcome dear Mrs. " + $("#name").val() + "!\nOur agent in " + $("#city").val() +  " will contact you immediately!");
+				}
+
+			}
+		}
+
+	</script>
+</head>
+<body>
+	<form name="form" id="form">
+		<label for="name">Your name: </label>
+		<input type="text" id="name" name="name" value="" /><br /><br />
+		<label for="city">Your city: </label>
+		<input type="text" id="city" name="city" value="" /><br /><br />
+		<label for="male">Male</label>
+		<input type="radio" id="male" name="sex" value="Male" />
+		<label for="female">Female</label>
+		<input type="radio" id="female" name="sex" value="Female" /><br /><br />
+		<span id="message"></span>
+		<input type="button" id="done" onclick="return valid()" value="Ready" />
+	</form>
+
+</body>
+</html>
