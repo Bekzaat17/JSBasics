@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title> jQuery exercises </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+        <div id="div"><h4>SQUARE</h4></div>
+
+    <script type="text/javascript">
+       $("#div").css("background-color", function () {
+           var bgcolor = prompt("Write color with small letters")
+           return bgcolor;
+       });
+
+       $("#div").css("height", function () {
+           var height = prompt("length of sides")
+           return height + "px";
+       });
+        $("#div").css("width", function () {
+            return $(this).height();
+        });
+    </script>
+
+</body>
+</html>
