@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title> jQuery exercises </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        .bg_1{
+            background-color: #c80000;
+        }
+        .bg_2{
+            background-color: #03c801;
+        }
+    </style>
+</head>
+<body>
+        <div id="div"><h3>SOME TEXT</h3></div>
+
+    <script type="text/javascript">
+        var div = prompt("select bg color 1 or 2?\n1 is red \n2 is green")
+        while (div != 1 && div != 2){
+            alert("please write 1 or 2");
+            var div = prompt("select bg color 1 or 2?\n1 is red \n2 is green")
+        }
+        $("#div").attr("class", "bg_" + div);
+    </script>
+
+</body>
+</html>
