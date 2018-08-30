@@ -1,0 +1,39 @@
+<!Doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> jQuery exercises </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function () {
+				$("img[name='img']").bind("click", function (event) {
+					if ($(event.target).parent().css('text-align') == 'left'){
+					$(event.target).parent().css("text-align", "center");
+					$(event.target).animate ({
+						width: $(event.target).width() * 3,
+						height: $(event.target).height() * 3,
+					}, 2500);}
+					else if ($(event.target).parent().css('text-align') == 'center'){
+						$(event.target).parent().css("text-align", "left");
+						$(event.target).animate ({
+							width: $(event.target).width() / 3,
+							height: $(event.target).height() / 3,
+						}, 2500);
+					}
+
+				});
+			});
+
+	</script>
+</head>
+<body>
+	<p name="picture" style="text-align: left">
+		<img src="https://www.engineyard.com/hs-fs/hubfs/Blog%20Images/Jquery.jpg?t=1535132512246&width=450&name=Jquery.jpg"
+			 name="img" width="200">
+	</p>
+	<p name="picture" style="text-align: left">
+		<img src="https://www.onlinetutz.com/wp-content/uploads/2016/08/Hi5ESio.jpg"
+			 name="img" width="200">
+	</p>
+</body>
+</html>
