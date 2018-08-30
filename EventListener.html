@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title> jQuery exercises </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function incSize(event) {
+            var width = Number(event.target.style.width.substring(0, event.target.style.width.length - 2));
+            event.target.style.width = (width + 5) + "px";
+            $("<p>Mouse clicked on coordinates: x - " + event.screenX + ", y - "
+                    + event.screenY + ".</p>").insertAfter("div:last");
+
+        }
+        setTimeout(function(){
+            $('p:first-child').remove();
+        }, 2000);
+        $(document).ready(function () {
+            $("div").bind("click", incSize);
+            $(document).on("click", "p", function(){
+                event.target.remove();
+            });
+        });
+    </script>
+</head>
+<body>
+   <div style="height: 80px; width: 80px; background-color: blue"></div>
+   <div style="height: 80px; width: 80px; background-color: red"></div>
+   <div style="height: 80px; width: 80px; background-color: green"></div>
+</body>
+</html>
