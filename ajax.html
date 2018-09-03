@@ -1,0 +1,37 @@
+<!Doctype HTML>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title> jQuery exercises </title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("select[name='country']").bind("change", function () {
+				$("select[name='city']").empty();
+				$.get("ajaxCheck.php", {country: $("select[name='country']").val()},
+						function (data) {
+							data = JSON.parse(data);
+							for(var id in data){
+								$("select[name='city']").append($("<option value='" + id + "'>" + data[id] + "</option>"));
+							}
+						});
+			});
+		}) ;
+
+	</script>
+</head>
+<body>
+	<label>Choose your country: </label>
+	<select name="country">
+		<option value="0" selected="selected"></option>
+		<option value="1">USA</option>
+		<option value="2">Russia</option>
+		<option value="3">Kazakhstan</option>
+	</select>
+	<br/>
+	<label>Choose your city: </label>
+	<select name="city">
+		<option value="0" selected="selected"></option>
+	</select>
+</body>
+</html>
